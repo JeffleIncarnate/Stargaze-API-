@@ -1,7 +1,7 @@
+require("dotenv").config({ path: `${__dirname}/.env` });
 const express = require("express");
 const stripe = require("stripe")(process.env.API_KEY);
 const cors = require("cors");
-require("dotenv").config({ path: `${__dirname}/.env` });
 
 const app = express();
 app.use(cors());
@@ -12,12 +12,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/config", async (req, res) => {
-  console.log(process.env.PUBLISHABLE_KEY);
-
   return res.send({
     publishableKey: process.env.PUBLISHABLE_KEY,
   });
 });
+
+//
 
 let actualItems = {
   sTRGZEOgTee: "price_1NaHTSDurtyT6kdC0yq1A8gJ",
