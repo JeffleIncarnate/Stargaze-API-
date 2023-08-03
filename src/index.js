@@ -26,6 +26,7 @@ let actualItems = {
 
 app.post("/create-payment-intent", async (req, res) => {
   let items = req.body;
+  let email = req.body.email;
 
   // Verify the items
   for (let i = 0; i < items.length; i++) {
@@ -59,6 +60,7 @@ app.post("/create-payment-intent", async (req, res) => {
       currency: "NZD",
       amount: total,
       automatic_payment_methods: { enabled: true },
+      description: JSON.stringify(req.body),
     });
 
     // Send publishable key and PaymentIntent details to client
