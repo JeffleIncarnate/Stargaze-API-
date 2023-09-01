@@ -51,7 +51,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
   total += total * 0.15;
 
-  total += 10;
+  total += 5;
   total = Math.ceil(total);
   total *= 100;
 
