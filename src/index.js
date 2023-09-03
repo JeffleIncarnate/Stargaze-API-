@@ -46,14 +46,15 @@ app.post("/create-payment-intent", async (req, res) => {
   let total = 0;
 
   for (let i = 0; i < items.length; i++) {
-    total += items[i].qty * 50;
+    total += items[i].qty * 45;
   }
 
   total += total * 0.15;
 
-  total += 5;
   total = Math.ceil(total);
   total *= 100;
+
+  console.log(total);
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
